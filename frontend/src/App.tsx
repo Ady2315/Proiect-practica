@@ -1,14 +1,16 @@
 import React from 'react';
 import './App.css';
-import ProjectsPage from './projects/ProjectsPage';
-import Hello from './Hello';
+import Login from './Components/Login/Login';
 
 function App() {
+  
   return (
-    <div className="App">
-      <Hello name='Adi' enthusiasmLevel={2}></Hello>
+    <div className="App d-flex justify-content-center mt-5 w-100">
+      <Login />
     </div>
   );
 }
+
+
 
 export default App;
