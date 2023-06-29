@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
 import Login from './Components/Login/Login';
+import { Container } from '@mui/material';
+import Register from './Components/Register/Register';
 
 function App() {
   
   return (
-    <div className="App d-flex justify-content-center mt-5 w-100">
+    <Container className="d-flex justify-content-center mt-5">
       <Login />
-    </div>
+    </Container>
   );
 }
 
