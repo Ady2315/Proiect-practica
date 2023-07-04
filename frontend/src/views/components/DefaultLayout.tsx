@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
 import { useStateContext } from "../../contexts/ContextProvider";
 import { useEffect } from "react";
@@ -28,25 +29,22 @@ function DefaultLayout() {
     }, []);
 
     return (
-        <div id="defaultLayout">
-            <aside className="aside">
-                <Link to="/dashboard">Dashboard</Link>
-                <Link to="/users">Users</Link>
-            </aside>
-            <div className="content">
-                <header>
-                    <div>
-                        Header
+        <div className="container">
+            <header className="d-flex justify-content-center mb-5">
+                <nav className="navbar navbar-expand-lg w-50 p-3 rounded-bottom-5 bg-secondary">
+                    <div className="container-fluid">
+                        <span className="fw-bold text-light">
+                            {user.name}
+                        </span>
+                        <Link className="link-offset-2" to={"/users"}>Users</Link>
+                        <Link onClick={onLogout} className="link-offset-2" to={"#"}>Logout</Link>
                     </div>
-                    <div>
-                        {user.name}
-                        <Link onClick={onLogout} className="btn-logout" to={"#"}>Logout</Link>
-                    </div>
-                </header>
-                <main>
-                    <Outlet />
-                </main>
-            </div>
+                </nav>
+                
+            </header>
+            <main>
+                <Outlet />
+            </main>
         </div>
     );
 }

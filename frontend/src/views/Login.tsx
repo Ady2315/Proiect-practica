@@ -1,3 +1,4 @@
+import React from "react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import axiosClient from "../axios-client";
@@ -31,24 +32,32 @@ function Login() {
     }
 
     return (
-        <div className="login-signup-form animated fadeInDown">
-            <div className="form">
+        <div className="container d-flex justify-content-center align-items-center">
+            <div className="card p-5 w-50 m-5 bg-light">
                 <form onSubmit={onSubmit}>
                     <h1 className="title">
                         Login into your account
                     </h1>
-                    {errors && <div className="alert">
+                    {errors && <div className="alert alert-danger" role="alert">
                         {Object.keys(errors).map(key => (
                             <p key={key}>{errors[key][0]}</p>
                         ))}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
                     </div>
                     } 
-                    <input ref={emailRef} type="email" placeholder="Email" />
-                    <input ref={passwordRef} type="password" placeholder="Password" />
-                    <button className="btn btn-block">Login</button>
-                    <p className="message">
-                        Not Registered? <Link to="/signup">Create an account</Link>
-                    </p>
+                    <div className="mb-3 d-flex flex-column">
+                        <label htmlFor="email" className="form-label">Email</label>
+                        <input ref={emailRef} type="email" id="email" className="form-control" placeholder="Email" />
+                    </div>
+                    <div className="mb-3 d-flex flex-column">
+                        <label htmlFor="password" className="form-label">Password</label>
+                        <input ref={passwordRef} type="password" id="password" className="form-control" placeholder="Password" />
+                    </div>
+                    <div className="mb-3 d-flex flex-column-reverse">
+                        <p className="message">
+                            Not Registered? <Link to="/signup">Create an account</Link>
+                        </p>
+                        <button className="btn btn-primary mb-3">Login</button>
+                    </div>
                 </form>
             </div>
         </div>
