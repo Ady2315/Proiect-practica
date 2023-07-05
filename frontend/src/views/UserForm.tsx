@@ -9,7 +9,7 @@ function UserForm() {
     const [errors, setErrors] = useState(null);
     const [user, setUser] = useState({
         id: null,
-        name: '',
+        platform: '',
         email: '',
         password: '',
         password_confirmation: ''
@@ -58,7 +58,7 @@ function UserForm() {
 
     return (
         <div>
-            {user.id && <h1>Update User: {user.name}</h1>}
+            {user.id && <h1>Update account</h1>}
             {!user.id && <h1>New User</h1>}
             <div className="card p-5 w-100 bg-dark">
                 {loading && (
@@ -73,8 +73,8 @@ function UserForm() {
                 {!loading &&
                     <form onSubmit={onSubmit}>
                         <div className="mb-4 form-floating">
-                            <input value={user.name} onChange={ev => setUser({...user, name: ev.target.value})} type="text" placeholder="Name" id="name" className="form-control" />
-                            <label htmlFor="name">Name</label>
+                            <input value={user.platform} onChange={ev => setUser({...user, platform: ev.target.value})} type="text" placeholder="Platform" id="platform" className="form-control" />
+                            <label htmlFor="platform">Platform</label>
                         </div>
                         <div className="mb-4 form-floating">
                             <input value={user.email} onChange={ev => setUser({...user, email: ev.target.value})} type="email" placeholder="Email" id="email" className="form-control" />

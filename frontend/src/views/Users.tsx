@@ -4,7 +4,7 @@ import axiosClient from "../axios-client";
 import { Link } from "react-router-dom";
 
 function Users() {
-    const [users, setUsers] = useState<{ id: number; name: string; email: string; created_at: string; }[]>([]);
+    const [users, setUsers] = useState<{ id: number; platform: string; email: string; }[]>([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -45,9 +45,8 @@ function Users() {
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Name</th>
+                            <th scope="col">Platform</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Create Date</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -63,9 +62,8 @@ function Users() {
                         {users.map(u => (
                             <tr key={u.id}>
                                 <th scope="row">{u.id}</th>
-                                <td>{u.name}</td>
+                                <td>{u.platform}</td>
                                 <td>{u.email}</td>
-                                <td>{u.created_at}</td>
                                 <td className="d-flex justify-content-between">
                                     <Link className="btn btn-primary" to={'/users/'+u.id}>Edit</Link>
                                     <button onClick={ev => onDelete(u)} className="btn btn-danger">Delete</button>
