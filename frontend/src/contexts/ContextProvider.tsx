@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import React from "react";
 
 interface StateContextType {
     user: any;
@@ -10,14 +11,14 @@ interface StateContextType {
 const StateContext = createContext<StateContextType>({
     user: null,
     token: null,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     setUser: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     setToken: () => {}
 })
 
 export const ContextProvider = ({children}: any) => {
-    const [user, setUser] = useState({
-        name: 'John'
-    });
+    const [user, setUser] = useState({});
     const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));
 
     const setToken = (token: any) => {

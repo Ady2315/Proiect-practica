@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         return UserResource::collection(
-            User::query()->orderBy('id', 'desc')->paginate(10)
+            User::query()->orderBy('id', 'desc')->paginate()
         );
     }
 
@@ -27,9 +27,9 @@ class UserController extends Controller
     {
         $data = $request->validated();
         $data['password'] = bcrypt($data['password']);
-        User::create($data);
+        $user = User::create($data);
 
-        return response(new UserResource($data), 201);
+        return response(new UserResource($user), 201);
     }
 
     /**

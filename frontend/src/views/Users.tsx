@@ -41,14 +41,14 @@ function Users() {
                 <Link to="/users/new" className="btn btn-success">Add new</Link>
             </div>
             <div className="card">
-                <table>
+                <table className="table table-dark table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Create Date</th>
-                            <th>Actions</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Create Date</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     {loading && <tbody>
@@ -62,11 +62,11 @@ function Users() {
                     {!loading && <tbody>
                         {users.map(u => (
                             <tr key={u.id}>
-                                <td>{u.id}</td>
+                                <th scope="row">{u.id}</th>
                                 <td>{u.name}</td>
                                 <td>{u.email}</td>
                                 <td>{u.created_at}</td>
-                                <td>
+                                <td className="d-flex justify-content-between">
                                     <Link className="btn btn-primary" to={'/users/'+u.id}>Edit</Link>
                                     <button onClick={ev => onDelete(u)} className="btn btn-danger">Delete</button>
                                 </td>

@@ -34,9 +34,9 @@ function Signup() {
 
     return (
         <div className="container d-flex justify-content-center align-items-center">
-            <div className="card p-5 w-50 m-5 bg-light">
+            <div className="card p-5 w-50 m-5 bg-dark">
                 <form onSubmit={onSubmit}>
-                    <h1 className="title">
+                    <h1 className="title text-light mb-4">
                         Signup for free
                     </h1>
                     {errors && <div className="alert alert-danger">
@@ -46,25 +46,25 @@ function Signup() {
                     </div>                                                                                                                                                                      
                         
                     }
-                    <div className="mb-3 d-flex flex-column">
-                        <label htmlFor="name" className="form-label">Name</label>
+                    <div className="mb-4 form-floating">
                         <input ref={nameRef} type="text" className="form-control" id="name" placeholder="Full Name" />
+                        <label htmlFor="name" className="form-label">Name</label>
                     </div>
-                    <div className="mb-3 d-flex flex-column">
-                        <label htmlFor="email" className="form-label">Email</label>
+                    <div className="mb-4 form-floating">
                         <input ref={emailRef} type="email" className="form-control" id="email" placeholder="Email" />
+                        <label htmlFor="email" className="form-label">Email</label>
                     </div>
-                    <div className="mb-3 d-flex flex-column">
-                        <label htmlFor="password" className="form-label">Password</label>
+                    <div className="mb-4 form-floating">
                         <input ref={passwordRef} type="password" className="form-control" id="password" placeholder="Password" />
+                        <label htmlFor="password" className="form-label">Password</label>
                     </div>
-                    <div className="mb-3 d-flex flex-column">
-                        <label htmlFor="passwordConfirmation" className="form-label">Password Confirmation</label>
+                    <div className="mb-4 form-floating">
                         <input ref={passwordConfirmationRef} type="password" className="form-control" id="passwordConfirmation" placeholder="Password Confirmation" />
+                        <label htmlFor="passwordConfirmation" className="form-label">Password Confirmation</label>
                     </div>
                     <div className="mb-3 d-flex flex-column-reverse">
-                        <p className="message">
-                            Already Registered? <Link to="/login">Sign in</Link>
+                        <p className="message text-light">
+                            Already Registered? <Link to="/login" className="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Sign in</Link>
                         </p>
                         <button className="btn btn-primary mb-3">Signup</button>                     
                     </div>                                                                                                                                                                                                                                                                                                                                             

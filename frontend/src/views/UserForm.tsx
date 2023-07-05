@@ -29,7 +29,7 @@ function UserForm() {
         }, [])
     }
 
-    const onSubmit = (ev: { preventDefault: () => void; }) => {
+    const onSubmit = (ev: any) => {
         ev.preventDefault();
         if (user.id) {
             axiosClient.put(`/users/${user.id}`, user)
@@ -60,7 +60,7 @@ function UserForm() {
         <div>
             {user.id && <h1>Update User: {user.name}</h1>}
             {!user.id && <h1>New User</h1>}
-            <div className="card">
+            <div className="card p-5 w-100 bg-dark">
                 {loading && (
                     <div className="text-center">Loading...</div>
                 )}
@@ -72,10 +72,22 @@ function UserForm() {
                 }
                 {!loading &&
                     <form onSubmit={onSubmit}>
-                        <input value={user.name} onChange={ev => setUser({...user, name: ev.target.value})} type="text" placeholder="Name" />
-                        <input value={user.email} onChange={ev => setUser({...user, email: ev.target.value})} type="email" placeholder="Email" />
-                        <input onChange={ev => setUser({...user, password: ev.target.value})} type="password" placeholder="Password" />
-                        <input onChange={ev => setUser({...user, password_confirmation: ev.target.value})} type="password" placeholder="Password Confirmation" />
+                        <div className="mb-4 form-floating">
+                            <input value={user.name} onChange={ev => setUser({...user, name: ev.target.value})} type="text" placeholder="Name" id="name" className="form-control" />
+                            <label htmlFor="name">Name</label>
+                        </div>
+                        <div className="mb-4 form-floating">
+                            <input value={user.email} onChange={ev => setUser({...user, email: ev.target.value})} type="email" placeholder="Email" id="email" className="form-control" />
+                            <label htmlFor="email">Email</label>
+                        </div>
+                        <div className="mb-4 form-floating">
+                            <input onChange={ev => setUser({...user, password: ev.target.value})} type="password" placeholder="Password" id="password" className="form-control" />
+                            <label htmlFor="password">Password</label>
+                        </div>
+                        <div className="mb-4 form-floating">
+                            <input onChange={ev => setUser({...user, password_confirmation: ev.target.value})} type="password" placeholder="Password Confirmation" id="password-confirmation" className="form-control" />
+                            <label htmlFor="password-confirmation">Password Confirmation</label>
+                        </div>
                         <button className="btn btn-success">Save</button>
                     </form>
                 }
@@ -85,7 +97,3 @@ function UserForm() {
 }
 
 export default UserForm;
-
-function preventDefault() {
-    throw new Error("Function not implemented.");
-}
