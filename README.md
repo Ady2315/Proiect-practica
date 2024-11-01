@@ -1,12 +1,12 @@
-# Proiect - practica
+# Project - practice
 
-## Nume proiect: Aplicatie de gestiune conturi utilizatori
+## Project name: User account management application
 
-## Descriere
+## Description
 
-Aplicatia permite utilizatorilor sa salveze conturi pentru diferite platforme
+The application allows users to save accounts for different platforms
 
-## Tehnologii folosite
+## Technologies used
 
  - React
  - Typescript
